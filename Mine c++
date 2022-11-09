@@ -1,0 +1,104 @@
+#include <iostream>
+#include <bits/stdc++.h>
+#define ll long long
+#define el "\n"
+using namespace std;
+int main() {
+    int amount = 900;
+    int password ;
+    cout<<"ENTER Enter your password : ";
+    cin>>password;
+    int Try = 3;bool chaek = false;
+    cout<<"\n  *** YOU HAVE THREE TRIALS ***  "<<endl;
+    while (Try-- > 0){
+        cout<<"ENTER YOUR SECRET PIN NUMBER : ";
+        int x;cin >> x;
+        if (x == password){
+            chaek=true;
+            break;
+        }
+        else {
+            cout<<"PLEASE ENTER VALID PASSWORD "<<endl;
+        }
+    }
+    if (chaek) {
+        while (true) {
+            cout << "******** Welcome to ATM Service ********" << endl;
+            cout << "1. Withdrawal Cash \n2. Deposit Cash \n3. Check Balance \n4. Currency Exchange \n5. Exit " << endl;
+            cout << "******************************************************" << endl;
+            cout << "Enter your choice :";
+            int x;
+            cin >> x;
+            switch (x) {
+                case 1: {
+                    cout << "ENTER THE AMOUNT TO WITHDRAW : ";
+                    int c1;
+                    cin >> c1;
+//                    cout << "PLEASE COLLECT CASH " << endl;
+                    cout << "YOUR CURRENT BALANCE IS " << amount << endl;
+                    amount -= c1;
+                    break;
+                }
+                case 2: {
+                    cout << "ENTER THE AMOUNT TO DEPOSIT : ";
+                    int c;
+                    cin >> c;
+                    cout << "YOUR BALANCE IS " << (amount + c) << endl;
+                    amount += c;
+                    break;
+                }
+                case 3: {
+                    cout << "YOUR BALANCE IN BANK IS :  " << amount << " JOD " << endl;
+                    break;
+                }
+                case 4: {
+                    while (true) {
+                    cout << "1. 1.000 JOD = 1.41 USD \n2. 1.000 JOD = 4.98 ILS \n3. 1.000 JOD = 1.41 \n" << endl;
+                    cout << "ENTER THE AMOUNT TO CONVERT : ";
+                        int z;cin>>z;
+                        int c;bool d=false;
+                        cout << "1. JOD to USD \n2. JOD to ILS \n3. JOD to EUR \n4. MAIN MENUE " << endl;
+                        cin >> c;
+                        switch (c) {
+                            case 1: {
+                                cout << "THE AMOUNT = " << (double) (z * 1.41) << endl;
+                                break;
+                            }
+                            case 2: {
+                                cout << "THE AMOUNT = " << (double) (z * 4.98) << endl;
+                                break;
+                            }
+                            case 3: {
+                                cout << "THE AMOUNT = " << (double) (z * 1.41) << endl;
+                                break;
+                            }
+                            case 4: {
+                                d=true;
+                                continue;
+                            }
+                        }
+                        if (!d)break;
+                    }
+                    break;
+                }
+                case 5: {
+                    cout << "THANK YOU FOR USING ATM " << endl;
+                    break;
+                }
+            }
+            cout << "DO YOU WISH TO HAVE ANOTHER TRANSACTION ? ( y / n ) : " << endl;
+            char s;
+            cin >> s;
+            if (s == 'y') {
+                continue;
+            } else {
+                cout << " THANK YOU FOR USING ATM " << endl;
+                break;
+            }
+        }
+    }
+    else {
+        cout<<"THANK YOU FOR USING ATM "<<endl;
+    }
+    return 0;
+}
